@@ -23,12 +23,12 @@ def inquirys(request):
                 return redirect('/listings/'+listing_id+'/')
             inquirys1 = inquiry(listing=listing, listing_id=listing_id, name=name, email=email, phone=phone, message=message, user_id=user_id, owner_id=owner_id)
             inquirys1.save()
-            send_mail(
-                'Inquiry for '+ listing,
-                'There has been an inquiry for '+ listing +'.Sign in to your dashboard for further info',
-                'cristomathew7@gmail.com',
-                [owner_mail],
-                fail_silently=False
-            )
+            # send_mail(
+            #     'Inquiry for '+ listing,
+            #     'There has been an inquiry for '+ listing +'.Sign in to your dashboard for further info',
+            #     'cristomathew7@gmail.com',
+            #     [owner_mail],
+            #     fail_silently=False
+            # )
             messages.success(request, "your inquiry has been made, the owner of the post will get back to you asap")
             return redirect('/listings/'+listing_id+'/')
